@@ -2,8 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import moment from 'moment';
 
-const API = 'http://localhost:5000/api/events';
-
+const API = `${process.env.REACT_APP_API_URL}/api/events`;
 // Helper function to format event dates - converts to ISO string for Redux storage
 const formatEventDates = (event) => {
   console.log('Formatting event for storage:', event);
