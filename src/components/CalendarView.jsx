@@ -1,15 +1,13 @@
 import moment from 'moment';
-import { useEffect, useState, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchEvents,
-  updateEvent,
-  clearError
+  clearError, fetchEvents,
+  updateEvent
 } from '../redux/eventSlice';
 import EventModal from './EventModal';
-import {colorMap} from './EventModal';
 const localizer = momentLocalizer(moment);
 
 const categoryColors = {

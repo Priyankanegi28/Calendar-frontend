@@ -1,21 +1,16 @@
 import moment from 'moment';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGoals, fetchTasks, selectGoal } from '../redux/goalSlice';
+import { fetchGoals } from '../redux/goalSlice';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const { goals, tasks, selectedGoal } = useSelector(state => state.goal);
+  const { tasks, selectedGoal } = useSelector(state => state.goal);
   const { events } = useSelector(state => state.event);
 
   useEffect(() => {
     dispatch(fetchGoals());
   }, [dispatch]);
-
-  const handleGoalClick = goal => {
-    dispatch(selectGoal(goal));
-    dispatch(fetchTasks(goal._id));
-  };
 
   return (
     <div className="sidebar" style={{ padding: '1rem', width: '250px', backgroundColor: '#f5f5f5' }}>
